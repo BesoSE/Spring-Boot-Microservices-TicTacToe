@@ -11,4 +11,6 @@ public interface UserService extends UserDetailsService {
     User getByUsername(String username) throws Exception;
     JwtResponse logout(JwtResponse response) throws Exception;
     Boolean getJwtByJwt(String jwt);
+    Boolean checkUsername(String username);
+    Boolean checkEmail(String email);
 }

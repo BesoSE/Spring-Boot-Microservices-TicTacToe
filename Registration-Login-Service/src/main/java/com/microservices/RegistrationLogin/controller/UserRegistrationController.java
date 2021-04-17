@@ -15,6 +15,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 
 @RestController
 @RequestMapping("/api")
@@ -59,6 +61,16 @@ public class UserRegistrationController {
     @GetMapping("/user/{username}")
     public ResponseEntity<User> getById(@PathVariable String username) throws Exception {
         return ResponseEntity.ok(userService.getByUsername(username));
+    }
+    @PostMapping("/checkUsername")
+    public ResponseEntity<Boolean> checkUsername(@RequestBody Map<String,String> username){
+
+        return ResponseEntity.ok(userService.checkUsername(username.get("username")));
+    }
+    @PostMapping("/checkEmail")
+    public ResponseEntity<Boolean> checkEmail(@RequestBody Map<String,String> email){
+
+        return ResponseEntity.ok(userService.checkEmail(email.get("email")));
     }
 
     @PostMapping("/registration")

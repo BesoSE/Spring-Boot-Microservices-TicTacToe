@@ -82,7 +82,27 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
-   @Override
+    @Override
+    public Boolean checkUsername(String username) {
+        Optional<User> optional= Optional.ofNullable(userRepository.findByUserName(username));
+        if(optional.isPresent()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean checkEmail(String email) {
+        Optional<User> optional= Optional.ofNullable(userRepository.findByEmail(email));
+        if(optional.isPresent()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
     public JwtResponse logout(JwtResponse response) throws Exception {
         if(response!=null){
             try{
