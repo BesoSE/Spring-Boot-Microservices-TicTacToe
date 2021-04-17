@@ -1,0 +1,30 @@
+.centerDivM{
+    margin-bottom: 2%;
+}
+.centerDiv{
+    display: flex;
+    
+    justify-content:center;
+    margin-bottom: 3%;
+}
+.board{
+    width: 100%;
+    list-style: none;
+
+}
+
+@media screen and (max-width:991px) {
+    .centerDivM{
+        display: flex;
+        
+        justify-content:center;
+    }
+  
+}
+@media screen and (max-width:691px) {
+    .board{
+        width: 100%;
+        
+    }
+  
+}
